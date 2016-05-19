@@ -1,0 +1,17 @@
+{
+  "name": "ng-todo-demo",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Teriq Perry <jtmp2r@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/jtmp2r/angularMusicHist",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
