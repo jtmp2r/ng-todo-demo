@@ -5,9 +5,18 @@ app.controller("NavCtrl", function($scope) {
 })
 
 
-
-
 app.controller("TodoCtrl", function($scope) {
 	$scope.welcome = "Hello";
+	$scope.showListView = "true"
+
+	$scope.newItem = function() {
+		console.log("click me BITCH!!!")
+		$scope.showListView = false;
+	}
+	$scope.allItem = function() {
+		console.log("click me! click me! CLICK ME!!!!!")
+		$scope.showListView = true;
+
+	}
 
 })
