@@ -1,0 +1,25 @@
+<h1>New Todo</h1>
+						<form>
+							<div class="form-group">
+								<label>Due Date</label>
+								<input type="text" class="form-control" placeholder="What to do" ng-model="newTask.dueDate">
+							</div>
+							<div class="form-group">
+								<label>Who doing it?</label>
+								<input type="text" class="form-control" placeholder="Who wants to know?" ng-model="newTask.assignedTo">
+							</div>
+							<div class="form-group">
+								<label>Location</label>
+								<input type="text" class="form-control" placeholder="The Terror Dome!!" ng-model="newTask.location">
+							</div>
+							<div class="form-group">
+								<label>Urgent</label>
+								<input type="text" class="form-control" placeholder="HIGH!!" ng-model="newTask.urgency">
+							</div>
+							<div class="form-group">
+								<label>Tools</label>
+								<input type="text" class="form-control" placeholder="Weaponry" ng-model="newTask.tools">
+							</div>
+							<button class="btn btn-danger" ng-click="addNewItem()">Bow Down</button>
+						</form>
+				</div>
