@@ -37,9 +37,6 @@ app.controller("TodoCtrl", function($scope) {
 			urgency: "Mediun",
 			tools: "gym, body, fire"
 		}
-
-
-
 	]
 
 	$scope.newItem = function() {
