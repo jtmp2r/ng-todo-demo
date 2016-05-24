@@ -13,7 +13,7 @@
 						<div class="panel panel-default">
 							<div class="panel-body">
 								<div class="col-xs-1"><input type="checkbox" /></div>
-								<div class="col-xs-8">{{thingy.task}}</div>
+								<div class="col-xs-8"><a ng-href="#/items/{{thingy.id}}" {{thingy.task}}</a></div>
 								<div class="col-xs-1">{{thingy.assignTo}}</div>
 								<div class="col-xs-1">{{thingy.dueDate}}</div>
 								<div><button class="col-cs-1 btn btn-danger" ng-click="itemDelete(thingy.id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>	
