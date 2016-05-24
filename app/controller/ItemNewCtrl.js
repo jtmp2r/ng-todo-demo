@@ -1,34 +1,37 @@
-app.controller("ItemNewCtrl", function($scope){
-	$scope.items = [
-			{
-				id: 0,
-				task: "mow the lawn, Teriq",
-				isCompleted: true,
-				dueDate: "12/5/17",
-				assignTo: 'greg',
-				location: "Zoe's House",
-				urgency: "low",
-				tools: 'sunshine, clippers, hat, water, headphones'
-			},
-			{
-				id: 1,
-				task: "grade quizzes",
-				isCompleted: true,
-				dueDate: "12/5/17",
-				assignTo: 'Joe',
-				location: "NSS",
-				urgency: "HIGH",
-				tools: 'wifi, tissues, vodka'
-			},
-			{
-				id: 2,
-				task: "Workout",
-				isCompleted: false,
-				dueDate: "12/5/17",
-				assignTo: 'Teriq',
-				location: "Anywhere",
-				urgency: "Mediun",
-				tools: "gym, body, fire"
-			}
-		]
+app.controller("ItemNewCtrl", function($scope, $http, $location){
+	$scope.newTask = {
+		assignedTo: "",
+		dependencies: "",
+		dueDate: "",
+		isCompleted: false,
+		location: "",
+		task: "",
+		urgency: ""
+ 	};
+
+
+	$scope.addNewItem = function() {
+		$http.post(
+			"https://angprac.firebaseio.com/items.json", 
+			JSON.stringify({
+				assignedTo: $scope.newTask.assignedTo,
+				tools: $scope.newTask.tools,
+				dueDate: $scope.newTask.dueDate,
+				isCompleted: $scope.newTask.isCompleted,
+				location: $scope.newTask.location,
+				task: $scope.newTask.task,
+				urgency: $scope.newTask.urgency
+			})
+			).success(function(response) {
+				console.log(response)
+				$location.url("/items/list");
+			})
+	}	
 })
+
+
+		// $scope.newTask.isCompleted = false;
+		// $scope.newTask.id = $scope.items.length;
+		// console.log("what what", $scope.newTask)
+		// $scope.items.push($scope.newTask);
+		// $scope.newTask = "";

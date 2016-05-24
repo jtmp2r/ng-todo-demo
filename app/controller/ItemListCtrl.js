@@ -1,34 +1,14 @@
-app.controller("ItemListCtrl", function($scope){
-	$scope.items = [
-			{
-				id: 0,
-				task: "mow the lawn, Teriq",
-				isCompleted: true,
-				dueDate: "12/5/17",
-				assignTo: 'greg',
-				location: "Zoe's House",
-				urgency: "low",
-				tools: 'sunshine, clippers, hat, water, headphones'
-			},
-			{
-				id: 1,
-				task: "grade quizzes",
-				isCompleted: true,
-				dueDate: "12/5/17",
-				assignTo: 'Joe',
-				location: "NSS",
-				urgency: "HIGH",
-				tools: 'wifi, tissues, vodka'
-			},
-			{
-				id: 2,
-				task: "Workout",
-				isCompleted: false,
-				dueDate: "12/5/17",
-				assignTo: 'Teriq',
-				location: "Anywhere",
-				urgency: "Mediun",
-				tools: "gym, body, fire"
-			}
-		]
+app.controller("ItemListCtrl", function($scope, $http){
+	$scope.items = [];
+
+	$http.get("https://angprac.firebaseio.com/items.json")
+		.success(function(itemObject) {
+			console.log("check", itemObject)
+			var itemCollection = itemObject;
+			console.log('itemObject', itemCollection)
+			Object.keys(itemCollection).forEach(function(key) {
+				itemCollection[key].id=key;
+				$scope.items.push(itemCollection[key]);
+			})
+		})
 })
