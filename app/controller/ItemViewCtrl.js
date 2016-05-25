@@ -1,23 +1,16 @@
-app.controller("ItemViewCtrl", function($scope, $http, $routeParams){
+app.controller("ItemViewCtrl", function($scope, $http, $routeParams, itemStorage){
 	$scope.items = [];
 	$scope.selectedItem = {};
 	console.log($routeParams.itemId);
 
 
-	$http.get("https://angprac.firebaseio.com/items.json")
-			.success(function(itemObject) {
-				console.log("check", itemObject)
-				var itemCollection = itemObject;
-				console.log('itemObject', itemCollection)
-				Object.keys(itemCollection).forEach(function(key) {
-					itemCollection[key].id=key;
-					$scope.items.push(itemCollection[key]);
-
-					$scope.selectedItem = $scope.items.filter(function(item) {
-						return item.id === $routeParams.itemId;
-					})[0];
-				})
-			})
+  itemStorage.getItemList().then(function(itemCollection){
+    console.log("itemCollection from promise", itemCollection);
+    $scope.items = itemCollection;
+    $scope.selectedItem = $scope.items.filter(function(item){
+			return item.id === $routeParams.itemId;
+		})[0];
+  })
 
 });
 	
