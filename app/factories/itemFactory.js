@@ -1,10 +1,10 @@
-'use strict';
-app.factory("itemStorage", function($q, $http){
+
+app.factory("itemStorage", function($q, $http, firebaseURL){
 	
 	var getItemList = function(){
-		let items = [];
+		var items = [];
 		return $q(function(resolve, reject){
-			$http.get("https://todo-appz2.firebaseio.com/items.json")
+			$http.get(firebaseURL + "items.json")
 				.success(function(itemObject){
 					var itemCollection = itemObject;
 					Object.keys(itemCollection).forEach(function(key){
@@ -22,7 +22,7 @@ app.factory("itemStorage", function($q, $http){
 	var deleteItem = function(itemId){
 		return $q(function(resolve, reject){
 			$http
-            	.delete(`https://todo-appz2.firebaseio.com/items/${itemId}.json`)
+            	.delete(firebaseURL + "items/" + itemId + ".json")
             	.success(function(objectFromFirebase){
             		resolve(objectFromFirebase)
             	})
@@ -32,10 +32,10 @@ app.factory("itemStorage", function($q, $http){
 	var postNewItem = function(newItem){
         return $q(function(resolve, reject) {
             $http.post(
-                "https://todo-appz2.firebaseio.com/items.json",
+                firebaseURL + "items.json",
                 JSON.stringify({
                     assignedTo: newItem.assignedTo,
-                    dependencies: newItem.dependencies,
+                    tools: newItem.tools,
                     dueDate: newItem.dueDate,
                     isCompleted: newItem.isCompleted,
                     location: newItem.location,

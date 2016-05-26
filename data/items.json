@@ -4,7 +4,7 @@
 				"task": "mow the lawn, Teriq",
 				"isCompleted": true,
 				"dueDate": "12/5/17",
-				"assignTo": "greg",
+				"assignedTo": "greg",
 				"location": "Zoe's House",
 				"urgency": "low",
 				"tools": "sunshine, clippers, hat, water, headphones"
@@ -13,7 +13,7 @@
 				"task": "grade quizzes",
 				"isCompleted": true,
 				"dueDate": "12/5/17",
-				"assignTo": "Joe",
+				"assignedTo": "Joe",
 				"location": "NSS",
 				"urgency": "HIGH",
 				"tools": "wifi, tissues, vodka"
@@ -22,7 +22,7 @@
 				"task": "Workout",
 				"isCompleted": false,
 				"dueDate": "12/5/17",
-				"assignTo": "Teriq",
+				"assignedTo": "Teriq",
 				"location": "Anywhere",
 				"urgency": "Mediun",
 				"tools": "gym, body, fire"
