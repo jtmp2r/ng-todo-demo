@@ -8,6 +8,10 @@ app.controller("LoginCtrl", function($scope, $location, firebaseURL, AuthFactory
 		password: ""
 	}
 
+	if($location.path() === '/logout') {
+		ref.unauth();
+	}
+
 	$scope.register = () => {
 		console.log("you clicked on register")
 		ref.createUser({
