@@ -72,7 +72,7 @@ app.factory("itemStorage", function($q, $http, firebaseURL){
                 firebaseURL + "items/" + itemId + ".json",
                 JSON.stringify({
                     assignedTo: newItem.assignedTo,
-                    dependencies: newItem.dependencies,
+                    tools: newItem.tools,
                     dueDate: newItem.dueDate,
                     isCompleted: newItem.isCompleted,
                     location: newItem.location,
@@ -88,6 +88,31 @@ app.factory("itemStorage", function($q, $http, firebaseURL){
         });
     };
 
-	return {updateItem:updateItem, getItemList:getItemList, deleteItem:deleteItem, postNewItem:postNewItem, getSingleItem:getSingleItem}
+
+    var updateCompletedStatus = function(newItem){
+        return $q(function(resolve, reject) {
+            $http.put(
+                firebaseURL + "items/" + newItem.id + ".json",
+                JSON.stringify({
+                    assignedTo: newItem.assignedTo,
+                    tools: newItem.tools,
+                    dueDate: newItem.dueDate,
+                    isCompleted: newItem.isCompleted,
+                    location: newItem.location,
+                    task: newItem.task,
+                    urgency: newItem.urgency
+                })
+            )
+            .success(
+                function(objectFromFirebase) {
+                    resolve(objectFromFirebase);
+                }
+            );
+        });
+    };
+
+
+
+	return {updateCompletedStatus:updateCompletedStatus, updateItem:updateItem, getItemList:getItemList, deleteItem:deleteItem, postNewItem:postNewItem, getSingleItem:getSingleItem}
 
 })
