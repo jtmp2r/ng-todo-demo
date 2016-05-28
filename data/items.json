@@ -7,7 +7,7 @@
 				"assignedTo": "greg",
 				"location": "Zoe's House",
 				"urgency": "low",
-				"tools": "sunshine, clippers, hat, water, headphones"
+				"dependencies": "sunshine, clippers, hat, water, headphones"
 			},
 			"item1":{
 				"task": "grade quizzes",
@@ -16,7 +16,7 @@
 				"assignedTo": "Joe",
 				"location": "NSS",
 				"urgency": "HIGH",
-				"tools": "wifi, tissues, vodka"
+				"dependencies": "wifi, tissues, vodka"
 			},
 			"item2":{
 				"task": "Workout",
@@ -25,7 +25,7 @@
 				"assignedTo": "Teriq",
 				"location": "Anywhere",
 				"urgency": "Mediun",
-				"tools": "gym, body, fire"
+				"dependencies": "gym, body, fire"
 			}
 		}
 	}	

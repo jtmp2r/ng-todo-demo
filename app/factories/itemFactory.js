@@ -35,7 +35,7 @@ app.factory("itemStorage", function($q, $http, firebaseURL){
                 firebaseURL + "items.json",
                 JSON.stringify({
                     assignedTo: newItem.assignedTo,
-                    tools: newItem.tools,
+                    dependencies: newItem.dependencies,
                     dueDate: newItem.dueDate,
                     isCompleted: newItem.isCompleted,
                     location: newItem.location,
@@ -72,7 +72,7 @@ app.factory("itemStorage", function($q, $http, firebaseURL){
                 firebaseURL + "items/" + itemId + ".json",
                 JSON.stringify({
                     assignedTo: newItem.assignedTo,
-                    tools: newItem.tools,
+                    dependencies: newItem.dependencies,
                     dueDate: newItem.dueDate,
                     isCompleted: newItem.isCompleted,
                     location: newItem.location,
@@ -95,7 +95,7 @@ app.factory("itemStorage", function($q, $http, firebaseURL){
                 firebaseURL + "items/" + newItem.id + ".json",
                 JSON.stringify({
                     assignedTo: newItem.assignedTo,
-                    tools: newItem.tools,
+                    dependencies: newItem.dependencies,
                     dueDate: newItem.dueDate,
                     isCompleted: newItem.isCompleted,
                     location: newItem.location,
@@ -113,6 +113,13 @@ app.factory("itemStorage", function($q, $http, firebaseURL){
 
 
 
-	return {updateCompletedStatus:updateCompletedStatus, updateItem:updateItem, getItemList:getItemList, deleteItem:deleteItem, postNewItem:postNewItem, getSingleItem:getSingleItem}
+	return {
+        updateCompletedStatus:updateCompletedStatus, 
+        updateItem:updateItem, 
+        getItemList:getItemList, 
+        deleteItem:deleteItem, 
+        postNewItem:postNewItem, 
+        getSingleItem:getSingleItem
+    }
 
 })

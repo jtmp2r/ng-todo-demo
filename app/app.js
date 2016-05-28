@@ -1,8 +1,12 @@
 var app = angular.module("TodoApp", ["ngRoute"])
-		.constant("firebaseURL", "https://todo-appz2.firebaseio.com/")
+		.constant("firebaseURL", "https://angprac.firebaseio.com/")
 
 app.config(function($routeProvider) {
 	$routeProvider
+		.when("/", {
+			templateUrl: 'partials/item-list.html',
+			controller: 'ItemListCtrl'
+		})
 		.when("/items/list", {
 			templateUrl: 'partials/item-list.html',
 			controller: 'ItemListCtrl'
@@ -18,8 +22,12 @@ app.config(function($routeProvider) {
 		.when('/items/:itemId/edit', {
 			templateUrl: 'partials/item-new.html',
 			controller: "ItemEditCtrl"
+		})
+		.when('/login', {
+			templateUrl: 'partials/login.html',
+			controller: "LoginCtrl"
 		}).
-		otherwise('/items/list');
+		otherwise('/');
 })
 
 

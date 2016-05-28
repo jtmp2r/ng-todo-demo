@@ -4,7 +4,7 @@ app.controller("ItemNewCtrl", function($scope, $location, itemStorage){
 
 	$scope.newTask = {
 		assignedTo: "",
-		tools: "",
+		dependencies: "",
 		dueDate: "",
 		isCompleted: false,
 		location: "",
